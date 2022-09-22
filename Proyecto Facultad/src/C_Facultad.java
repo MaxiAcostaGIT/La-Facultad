@@ -1,18 +1,36 @@
 public class C_Facultad {
     //ATRIBUTOS:
-    String nombre;
-    C_Carrera[] coleccionCCarreras;
+    private String nombre;
+    private C_Carrera[] coleccionCarreras;
+
+    //CONSTRUCTOR:
+    public C_Facultad(String nombre, int numeroCarreras) {
+        this.setNombre(nombre);
+        this.setColeccionCarreras(new C_Carrera[numeroCarreras]);
+    }
 
     //METODOS:
-    public void agregarCarrera(C_Carrera CCarrera) {
+    public void agregarCarrera(C_Carrera carrera) {
+
+    }
+    public void eliminarCarrera(C_Carrera carrera) {
+        //CODIGO...
+    }
+    public void eliminarEstudiante(C_Estudiante estudiante) {
         //CODIGO...
     }
 
-    public void eliminarCarrera(C_Carrera CCarrera) {
-        //CODIGO...
+    //GETTERS Y SETTERS:
+    public String getNombre() {
+        return nombre;
     }
-
-    public void eliminarEstudiante(C_Estudiante CEstudiante) {
-        //CODIGO...
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+    public C_Carrera[] getColeccionCarreras() {
+        return coleccionCarreras;
+    }
+    public void setColeccionCarreras(C_Carrera[] coleccionCarreras) {
+        this.coleccionCarreras = coleccionCarreras;
     }
 }
