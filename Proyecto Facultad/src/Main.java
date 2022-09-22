@@ -12,8 +12,14 @@ public class Main {
         C_Facultad facultad = new C_Facultad("UTN", 3);
         facultad.getColeccionCarreras()[0] = new C_Carrera("Ingenieria en Sistemas de Informacion", 3);
         facultad.getColeccionCarreras()[0].getColeccionMaterias()[0] = new C_Materia("Programacion I", profesor1, 3);
+        facultad.getColeccionCarreras()[0].getColeccionMaterias()[0].getColeccionEstudiantes()[0] = estudiante1;
 
-
+        //TESTEO:
+        System.out.println("Nombre de la facultad: " + facultad.getNombre());
+        System.out.println("Nombre de la carrera: " + facultad.getColeccionCarreras()[0].getNombre());
+        System.out.println("Nombre de la materia: " + facultad.getColeccionCarreras()[0].getColeccionMaterias()[0].getNombre());
+        System.out.println("Nombre del profesor: " + facultad.getColeccionCarreras()[0].getColeccionMaterias()[0].getTitular().getNombre());
+        System.out.println("Nombre del estudiante: " + facultad.getColeccionCarreras()[0].getColeccionMaterias()[0].getColeccionEstudiantes()[0].getNombre());
 
         // PROGRAMA:
         System.out.println("- GESTOR FACULTAD -");
@@ -28,23 +34,47 @@ public class Main {
         int opcion = scanner.nextInt();
 
         switch (opcion) {
-            case 1:
+            case 1: // CARRERAS
+                System.out.println("Elija una opcion:");
+                System.out.println("1. Agregar carrera");
+                System.out.println("2. Eliminar carrera");
+                System.out.println("3. Volver");
+                System.out.println();
+                int opcionCarreras = scanner.nextInt();
+
+                switch (opcionCarreras) {
+                    case 1: // AGREGAR CARRERA
+                        System.out.println("Ingrese el nombre de la carrera:");
+                        String nombreCarrera = scanner.next();
+                        System.out.println("Ingrese la cantidad de materias:");
+                        int cantidadMaterias = scanner.nextInt();
+                        C_Carrera carrera = new C_Carrera(nombreCarrera, cantidadMaterias);
+                        facultad.agregarCarrera(carrera);
+                        break;
+                    case 2: // ELIMINAR CARRERA
+                        System.out.println("Ingrese el nombre de la carrera a eliminar:");
+                        String nombreCarreraAEliminar = scanner.next();
+                        facultad.eliminarCarrera(nombreCarreraAEliminar);
+
+                        break;
+                    case 3: // VOLVER
+                        break;
+                }
+                break;
+
+            case 2: // MATERIAS
 
                 break;
 
-            case 2:
+            case 3: // PROFESORES
 
                 break;
 
-            case 3:
+            case 4: // ESTUDIANTES
 
                 break;
 
-            case 4:
-
-                break;
-
-            case 5:
+            case 5: // SALIR
 
                 break;
 
@@ -54,7 +84,12 @@ public class Main {
         }
 
 
-
+        //mostrar coleccion de carreras:
+        for (int i = 0; i < facultad.getColeccionCarreras().length; i++) {
+            if (facultad.getColeccionCarreras()[i] != null) {
+                System.out.println(facultad.getColeccionCarreras()[i].getNombre());
+            }
+        }
 
 
 

@@ -13,11 +13,20 @@ public class C_Materia {
 
     //METODOS:
     public void agregarEstudiante(C_Estudiante estudiante) {
-        //CODIGO...
+        for (int i = 0; i < coleccionEstudiantes.length; i++) {
+            if (coleccionEstudiantes[i] == null) {
+                coleccionEstudiantes[i] = estudiante;
+                break;
+            }
+        }
     }
-
     public void eliminarEstudiante(C_Estudiante estudiante) {
-        //CODIGO...
+        for (int i = 0; i < coleccionEstudiantes.length; i++) {
+            if (coleccionEstudiantes[i] == estudiante) {
+                coleccionEstudiantes[i] = null;
+                break;
+            }
+        }
     }
 
     public void modificarTitular(C_Profesor CProfesor) {

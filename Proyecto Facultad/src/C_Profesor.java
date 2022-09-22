@@ -9,6 +9,6 @@ public class C_Profesor extends A_Persona{
     }
 
     public double calcularSueldo() {
-        return basico + (antiguedad * 100); // VALOR POR DEFECTO PARA QUE NO DE ERROR.
+        return basico + (antiguedad * 100);
     }
 }
