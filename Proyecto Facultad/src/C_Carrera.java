@@ -1,14 +1,14 @@
-public class Carrera {
+public class C_Carrera {
     //ATRIBUTOS:
     String nombre;
-    Materia[] coleccionMaterias;
+    C_Materia[] coleccionCMaterias;
 
     //METODOS:
-    public void agregarMateria(Materia materia) {
+    public void agregarMateria(C_Materia CMateria) {
         //CODIGO...
     }
 
-    public void eliminarMateria(Materia materia) {
+    public void eliminarMateria(C_Materia CMateria) {
         //CODIGO...
     }
 

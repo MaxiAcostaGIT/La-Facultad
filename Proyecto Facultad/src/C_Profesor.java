@@ -1,4 +1,4 @@
-public class Profesor {
+public class C_Profesor {
     double basico;
     int antiguedad;
 

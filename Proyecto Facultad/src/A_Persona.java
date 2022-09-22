@@ -1,4 +1,4 @@
-public abstract class Persona {
+abstract class A_Persona {
     //Atributos: nombre, apellido, legajo
     private String nombre;
     private String apellido;
@@ -10,5 +10,4 @@ public abstract class Persona {
         this.apellido = apellido;
         this.legajo = legajo;
     }
-
 }
