@@ -5,9 +5,8 @@ public class C_Materia {
     private C_Estudiante[] coleccionEstudiantes;
 
     //CONSTRUCTOR:
-    public C_Materia(String nombre,C_Profesor profesor, int numeroEstudiantes) {
+    public C_Materia(String nombre, int numeroEstudiantes) {
         this.nombre = nombre;
-        this.titular = profesor;
         this.coleccionEstudiantes = new C_Estudiante[numeroEstudiantes];
     }
 
@@ -51,5 +50,9 @@ public class C_Materia {
     }
     public void setColeccionEstudiantes(C_Estudiante[] coleccionEstudiantes) {
         this.coleccionEstudiantes = coleccionEstudiantes;
+    }
+
+    public void setProfesor(C_Profesor profesor) {
+        this.titular = profesor;
     }
 }

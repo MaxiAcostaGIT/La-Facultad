@@ -11,12 +11,13 @@ public class C_Carrera {
 
     //METODOS:
     public void agregarMateria(C_Materia materia) {
-        C_Materia[] aux = new C_Materia[this.getColeccionMaterias().length + 1];
-        for (int i = 0; i < this.getColeccionMaterias().length; i++) {
-            aux[i] = this.getColeccionMaterias()[i];
+        // agergar materia a la coleccion de materias de la carrera en la primera posicion libre:
+        for (int i = 0; i < coleccionMaterias.length; i++) {
+            if (coleccionMaterias[i] == null) {
+                coleccionMaterias[i] = materia;
+                break;
+            }
         }
-        aux[aux.length - 1] = materia;
-        this.setColeccionMaterias(aux);
     }
     public void eliminarMateria(C_Materia materia) {
         C_Materia[] aux = new C_Materia[this.getColeccionMaterias().length - 1];

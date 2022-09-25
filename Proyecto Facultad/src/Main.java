@@ -11,14 +11,13 @@ public class Main {
         // FACULTAD:
         C_Facultad facultad = new C_Facultad("UTN", 3);
         facultad.getColeccionCarreras()[0] = new C_Carrera("Ingenieria en Sistemas", 3);
-        facultad.getColeccionCarreras()[0].getColeccionMaterias()[0] = new C_Materia("Programacion I", profesor1, 3);
+        facultad.getColeccionCarreras()[0].getColeccionMaterias()[0] = new C_Materia("Programacion I", 3);
         facultad.getColeccionCarreras()[0].getColeccionMaterias()[0].getColeccionEstudiantes()[0] = estudiante1;
 
         //TESTEO:
         System.out.println("Nombre de la facultad: " + facultad.getNombre());
         System.out.println("Nombre de la carrera: " + facultad.getColeccionCarreras()[0].getNombre());
         System.out.println("Nombre de la materia: " + facultad.getColeccionCarreras()[0].getColeccionMaterias()[0].getNombre());
-        System.out.println("Nombre del profesor: " + facultad.getColeccionCarreras()[0].getColeccionMaterias()[0].getTitular().getNombre());
         System.out.println("Nombre del estudiante: " + facultad.getColeccionCarreras()[0].getColeccionMaterias()[0].getColeccionEstudiantes()[0].getNombre());
 
         // PROGRAMA:
@@ -70,23 +69,165 @@ public class Main {
                                 }
                                 break;
                             case 2: // ELIMINAR CARRERA
+                                System.out.println("Carreras:");
+                                for (int i = 0; i < facultad.getColeccionCarreras().length; i++) {
+                                    if (facultad.getColeccionCarreras()[i] != null) {
+                                        System.out.println(i + ". " + facultad.getColeccionCarreras()[i].getNombre());
+                                    }
+                                }
+                                System.out.println();
                                 System.out.println("Ingrese el numero de la carrera:");
                                 int numeroCarrera = scanner.nextInt();
                                 facultad.eliminarCarrera(facultad.getColeccionCarreras()[numeroCarrera]);
                                 break;
                             case 3: // VOLVER
                                 System.out.println("Volviendo...");
+                                System.out.println();
+                                break;
+                            default:
+                                System.out.println("Opcion incorrecta.");
+                                System.out.println();
                                 break;
                         }
+                    break;
                 case 2: // MATERIAS
+                    //MOSTRAMOS LAS CARRERAS:
+                    System.out.println("Carreras:");
+                    for (int i = 0; i < facultad.getColeccionCarreras().length; i++) {
+                        if (facultad.getColeccionCarreras()[i] != null) {
+                            System.out.println(i + ". " + facultad.getColeccionCarreras()[i].getNombre());
+                        }
+                    }
+                    System.out.println();
+                    System.out.println("Elija una carrera:");
+                    int numeroCarrera = scanner.nextInt();
+                    System.out.println();
+                    //MOSTRAMOS LAS MATERIAS:
+                    System.out.println("Materias:");
+                    for (int i = 0; i < facultad.getColeccionCarreras()[numeroCarrera].getColeccionMaterias().length; i++) {
+                        if (facultad.getColeccionCarreras()[numeroCarrera].getColeccionMaterias()[i] != null) {
+                            System.out.println(i + ". " + facultad.getColeccionCarreras()[numeroCarrera].getColeccionMaterias()[i].getNombre());
+                        }
+                    }
+                    System.out.println();
+                    System.out.println("Elija una opcion:");
+                    System.out.println("1. Agregar materia");
+                    System.out.println("2. Eliminar materia");
+                    System.out.println("3. Volver");
+                    System.out.println();
+                    int opcionMaterias = scanner.nextInt();
+
+                    switch (opcionMaterias) {
+                        case 1: //AGREGAR MATERIA
+                            if (opcionMaterias == 1 && facultad.getColeccionCarreras()[numeroCarrera].getColeccionMaterias()[facultad.getColeccionCarreras()[numeroCarrera].getColeccionMaterias().length - 1] != null) {
+                                System.out.println("No se pueden agregar mas materias.");
+                                System.out.println();
+                            } else {
+                                System.out.println("Ingrese el nombre de la materia:");
+                                String nombreMateria = scanner.nextLine();
+                                nombreMateria = scanner.nextLine();
+                                System.out.println("Ingrese la cantidad de alumnos:");
+                                int cantidadAlumnos = scanner.nextInt();
+                                C_Materia materia = new C_Materia(nombreMateria, cantidadAlumnos);
+                                facultad.getColeccionCarreras()[numeroCarrera].agregarMateria(materia);
+                                System.out.println("Materia agregada.");
+                                System.out.println();
+                            }
+
+                            break;
+                        case 2: // ELIMINAR MATERIA
+                            System.out.println("Materias:");
+                            for (int i = 0; i < facultad.getColeccionCarreras()[numeroCarrera].getColeccionMaterias().length; i++) {
+                                if (facultad.getColeccionCarreras()[numeroCarrera].getColeccionMaterias()[i] != null) {
+                                    System.out.println(i + ". " + facultad.getColeccionCarreras()[numeroCarrera].getColeccionMaterias()[i].getNombre());
+                                }
+                            }
+                            System.out.println();
+                            System.out.println("Ingrese el numero de la materia:");
+                            int numeroMateria = scanner.nextInt();
+                            facultad.getColeccionCarreras()[numeroCarrera].eliminarMateria(facultad.getColeccionCarreras()[numeroCarrera].getColeccionMaterias()[numeroMateria]);
+                            System.out.println("Materia eliminada.");
+                            System.out.println();
+                            break;
+
+                        case 3: // VOLVER
+                            System.out.println("Volviendo...");
+                            System.out.println();
+                            break;
+
+                        default:
+                            System.out.println("Opcion incorrecta.");
+                            System.out.println();
+                            break;
+                    }
 
                     break;
 
                 case 3: // PROFESORES
+                    System.out.println("- PROFESORES -");
+                    System.out.println();
+                    System.out.println("Elija una opcion:");
+                    System.out.println("1. Modificar profesor");
+                    System.out.println("2. Volver");
+                    System.out.println();
+                    int opcionProfesores = scanner.nextInt();
+
+                    switch (opcionProfesores) {
+                        case 1: //MODIFICAR PROFESOR
+                            System.out.println("Que carrera desea modificar?");
+                            System.out.println();
+                            //MOSTRAMOS LAS CARRERAS:
+                            System.out.println("Carreras:");
+                            for (int i = 0; i < facultad.getColeccionCarreras().length; i++) {
+                                if (facultad.getColeccionCarreras()[i] != null) {
+                                    System.out.println(i + ". " + facultad.getColeccionCarreras()[i].getNombre());
+                                }
+                            }
+                            System.out.println();
+                            System.out.println("Elija una carrera:");
+                            int numeroCarreraProfesor = scanner.nextInt();
+                            System.out.println();
+                            System.out.println("Que materia desea modificar el profesor?");
+                            System.out.println();
+                            //MOSTRAMOS LAS MATERIAS:
+                            System.out.println("Materias:");
+                            for (int i = 0; i < facultad.getColeccionCarreras()[numeroCarreraProfesor].getColeccionMaterias().length; i++) {
+                                if (facultad.getColeccionCarreras()[numeroCarreraProfesor].getColeccionMaterias()[i] != null) {
+                                    System.out.println(i + ". " + facultad.getColeccionCarreras()[numeroCarreraProfesor].getColeccionMaterias()[i].getNombre());
+                                }
+                            }
+                            System.out.println();
+                            System.out.println("Elija una materia:");
+                            int numeroMateriaProfesor = scanner.nextInt();
+                            System.out.println();
+                            // ASIGNAMOS PROFESOR:
+                            System.out.println("Ingrese el nombre del profesor:");
+                            String nombreProfesor = scanner.nextLine();
+                            nombreProfesor = scanner.nextLine();
+                            System.out.println("Ingrese el apellido del profesor:");
+                            String apellidoProfesor = scanner.nextLine();
+                            System.out.println("Ingrese numero de legajo del profesor:");
+                            int legajoProfesor = scanner.nextInt();
+                            // asignamos profesor:
+                            facultad.getColeccionCarreras()[numeroCarreraProfesor].getColeccionMaterias()[numeroMateriaProfesor].setProfesor(new C_Profesor(nombreProfesor, apellidoProfesor, legajoProfesor));
+                            System.out.println("Profesor asignado.");
+                            System.out.println();
+                            break;
+
+                        case 2: // VOLVER
+                            System.out.println("Volviendo...");
+                            System.out.println();
+                            break;
+                        default:
+                            System.out.println("Opcion incorrecta.");
+                            System.out.println();
+                            break;
+                    }
 
                     break;
 
                 case 4: // ESTUDIANTES
+                    System.out.println("- ESTUDIANTES -");
 
                     break;
 
