@@ -19,12 +19,11 @@ public class C_Facultad {
         aux[aux.length - 1] = carrera;
         this.setColeccionCarreras(aux);
     }
-    public void eliminarCarrera(String carrera) {
-        //metodo eliminar carrera de coleccionCarreras:
+    public void eliminarCarrera(C_Carrera carrera) {
         C_Carrera[] aux = new C_Carrera[this.getColeccionCarreras().length - 1];
         int j = 0;
         for (int i = 0; i < this.getColeccionCarreras().length; i++) {
-            if (this.getColeccionCarreras()[i].getNombre().equals(carrera)) {
+            if (this.getColeccionCarreras()[i] != carrera) {
                 aux[j] = this.getColeccionCarreras()[i];
                 j++;
             }
@@ -32,8 +31,6 @@ public class C_Facultad {
         this.setColeccionCarreras(aux);
     }
     public void eliminarEstudiante(C_Estudiante estudiante) {
-
-
     }
 
     //GETTERS Y SETTERS:
