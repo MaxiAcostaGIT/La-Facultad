@@ -10,14 +10,13 @@ public class C_Facultad {
     }
 
     //METODOS:
-    //metodo agregar carrera a coleccionCarreras:
     public void agregarCarrera(C_Carrera carrera) {
-        C_Carrera[] aux = new C_Carrera[this.getColeccionCarreras().length + 1];
         for (int i = 0; i < this.getColeccionCarreras().length; i++) {
-            aux[i] = this.getColeccionCarreras()[i];
+            if (this.getColeccionCarreras()[i] == null) {
+                this.getColeccionCarreras()[i] = carrera;
+                break;
+            }
         }
-        aux[aux.length - 1] = carrera;
-        this.setColeccionCarreras(aux);
     }
     public void eliminarCarrera(C_Carrera carrera) {
         C_Carrera[] aux = new C_Carrera[this.getColeccionCarreras().length - 1];
@@ -29,8 +28,6 @@ public class C_Facultad {
             }
         }
         this.setColeccionCarreras(aux);
-    }
-    public void eliminarEstudiante(C_Estudiante estudiante) {
     }
 
     //GETTERS Y SETTERS:
@@ -45,5 +42,8 @@ public class C_Facultad {
     }
     public void setColeccionCarreras(C_Carrera[] coleccionCarreras) {
         this.coleccionCarreras = coleccionCarreras;
+    }
+
+    public void eliminarEstudiante(C_Estudiante estudiante) {
     }
 }
