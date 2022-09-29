@@ -26,7 +26,6 @@ public class Main {
         System.out.println(facultad.toString());
         System.out.println(facultad.getColeccionCarreras()[0].toString());
         System.out.println(facultad.getColeccionCarreras()[0].getColeccionMaterias()[0].toString());
-
         System.out.println("--------------------");
         System.out.println();
 
@@ -341,16 +340,6 @@ public class Main {
                     break;
             }
         } while (opcion != 5);
-
-
-        //mostrar coleccion de carreras:
-        System.out.println();
-        System.out.println("CARRERAS:");
-        for (int i = 0; i < facultad.getColeccionCarreras().length; i++) {
-            if (facultad.getColeccionCarreras()[i] != null) {
-                System.out.println(facultad.getColeccionCarreras()[i].getNombre());
-            }
-        }
 
         System.out.println();
         System.out.println("Fin del programa");

@@ -43,14 +43,28 @@ public class C_Facultad implements I_Informacion{
     public void setColeccionCarreras(C_Carrera[] coleccionCarreras) {
         this.coleccionCarreras = coleccionCarreras;
     }
-
     public void eliminarEstudiante(C_Estudiante estudiante) {
-    } // FALTAN ESTOS METODOS
+        // Eliminar Estudiantes de una facultad implica que se elimine el estudiante de cada una de las materias a las cuales se inscribió:
+        for (int i = 0; i < this.getColeccionCarreras().length; i++) {
+            if (this.getColeccionCarreras()[i] != null) {
+                for (int j = 0; j < this.getColeccionCarreras()[i].getColeccionMaterias().length; j++) {
+                    if (this.getColeccionCarreras()[i].getColeccionMaterias()[j] != null) {
+                        for (int k = 0; k < this.getColeccionCarreras()[i].getColeccionMaterias()[j].getColeccionEstudiantes().length; k++) {
+                            if (this.getColeccionCarreras()[i].getColeccionMaterias()[j].getColeccionEstudiantes()[k] != null) {
+                                if (this.getColeccionCarreras()[i].getColeccionMaterias()[j].getColeccionEstudiantes()[k].getLegajo() == estudiante.getLegajo()) {
+                                    this.getColeccionCarreras()[i].getColeccionMaterias()[j].eliminarEstudiante(k);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 
     // INFORMACION:
     @Override
     public int verCantidad() {
-        // Devuelve la cantidad de carreras cargadas en la facultad:
         int cantidad = 0;
         for (int i = 0; i < this.getColeccionCarreras().length; i++) {
             if (this.getColeccionCarreras()[i] != null) {
@@ -59,7 +73,6 @@ public class C_Facultad implements I_Informacion{
         }
         return cantidad;
     }
-
     @Override
     public String listarContenidos() {
         String lista = "";

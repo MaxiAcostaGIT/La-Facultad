@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class C_Carrera implements I_Informacion{
     //ATRIBUTOS:
     private String nombre;
@@ -36,6 +38,23 @@ public class C_Carrera implements I_Informacion{
                 System.out.println("Materia encontrada: " + this.getColeccionMaterias()[i].getNombre());
             }
         }
+    }
+
+    public void eliminarMateriaPorNombre(String nombre) {
+        //Encontrar materias por nombre, si existe, mostrarla y preguntar si desea eliminarla, si retorna null, pasar a la siguiente materia:
+        for (int i = 0; i < this.getColeccionMaterias().length; i++) {
+            if (this.getColeccionMaterias()[i].getNombre().equals(nombre)) {
+                System.out.println("Materia encontrada: " + this.getColeccionMaterias()[i].getNombre());
+                System.out.println("Desea eliminarla? (s/n)");
+                Scanner sc = new Scanner(System.in);
+                String respuesta = sc.nextLine();
+                if (respuesta.equals("s")) {
+                    this.eliminarMateria(this.getColeccionMaterias()[i]);
+                    System.out.println("Materia eliminada.");
+                }
+            }
+        }
+
     }
 
     //GETTERS Y SETTERS:
