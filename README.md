@@ -42,4 +42,4 @@ This option will exit the program.
 - For the moment there is not a .jar file, so it's only work in the compiler.
 
 # 💡 Credits:
-This program was made by "Acosta Maximiliano Nicolas" for the course "Laboratory II" of the career of "Technician University in Programming" of the "National University of Technology".
+This program was made by "Acosta, Maximiliano Nicolas" for the course "Laboratory II" of the career of "Technician University in Programming" of the "National University of Technology".
