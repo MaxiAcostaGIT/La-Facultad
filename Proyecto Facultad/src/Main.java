@@ -15,10 +15,14 @@ public class Main {
         facultad.getColeccionCarreras()[0].getColeccionMaterias()[0].getColeccionEstudiantes()[0] = estudiante1;
 
         //TESTEO:
+        System.out.println("--------------------");
+        System.out.println("TESTEO DE FACULTAD:");
         System.out.println("Nombre de la facultad: " + facultad.getNombre());
         System.out.println("Nombre de la carrera: " + facultad.getColeccionCarreras()[0].getNombre());
         System.out.println("Nombre de la materia: " + facultad.getColeccionCarreras()[0].getColeccionMaterias()[0].getNombre());
         System.out.println("Nombre del estudiante: " + facultad.getColeccionCarreras()[0].getColeccionMaterias()[0].getColeccionEstudiantes()[0].getNombre());
+        System.out.println("--------------------");
+        System.out.println();
 
         // PROGRAMA:
         System.out.println("- GESTOR FACULTAD -");
@@ -271,11 +275,47 @@ public class Main {
                             break;
 
                         case 2: // ELIMINAR ESTUDIANTE DE UNA MATERIA
-
+                            System.out.println();
+                            System.out.println("Carreras:");
+                            for (int i = 0; i < facultad.getColeccionCarreras().length; i++) {
+                                if (facultad.getColeccionCarreras()[i] != null) {
+                                    System.out.println(i + ". " + facultad.getColeccionCarreras()[i].getNombre());
+                                }
+                            }
+                            System.out.println();
+                            System.out.println("Elija una carrera:");
+                            int numeroCarreraEstudianteEliminar = scanner.nextInt();
+                            System.out.println();
+                            System.out.println("De que materia desea eliminar el estudiante?");
+                            System.out.println();
+                            System.out.println("Materias:");
+                            for (int i = 0; i < facultad.getColeccionCarreras()[numeroCarreraEstudianteEliminar].getColeccionMaterias().length; i++) {
+                                if (facultad.getColeccionCarreras()[numeroCarreraEstudianteEliminar].getColeccionMaterias()[i] != null) {
+                                    System.out.println(i + ". " + facultad.getColeccionCarreras()[numeroCarreraEstudianteEliminar].getColeccionMaterias()[i].getNombre());
+                                }
+                            }
+                            System.out.println();
+                            System.out.println("Elija una materia:");
+                            int numeroMateriaEstudianteEliminar = scanner.nextInt();
+                            System.out.println();
+                            // MUESTRO LOS ESTUDIANTES DE LA MATERIA
+                            System.out.println("Estudiantes:");
+                            for (int i = 0; i < facultad.getColeccionCarreras()[numeroCarreraEstudianteEliminar].getColeccionMaterias()[numeroMateriaEstudianteEliminar].getColeccionEstudiantes().length; i++) {
+                                if (facultad.getColeccionCarreras()[numeroCarreraEstudianteEliminar].getColeccionMaterias()[numeroMateriaEstudianteEliminar].getColeccionEstudiantes()[i] != null) {
+                                    System.out.println(i + ". " + facultad.getColeccionCarreras()[numeroCarreraEstudianteEliminar].getColeccionMaterias()[numeroMateriaEstudianteEliminar].getColeccionEstudiantes()[i].getNombre() + " " + facultad.getColeccionCarreras()[numeroCarreraEstudianteEliminar].getColeccionMaterias()[numeroMateriaEstudianteEliminar].getColeccionEstudiantes()[i].getApellido());
+                                }
+                            }
+                            System.out.println();
+                            System.out.println("Elija un estudiante:");
+                            int numeroEstudianteEliminar = scanner.nextInt();
+                            facultad.getColeccionCarreras()[numeroCarreraEstudianteEliminar].getColeccionMaterias()[numeroMateriaEstudianteEliminar].eliminarEstudiante(numeroEstudianteEliminar);
+                            System.out.println("Estudiante eliminado.");
+                            System.out.println();
                             break;
 
-                        case 3:
-
+                        case 3: // VOLVER AL MENU PRINCIPAL
+                            System.out.println("Volviendo...");
+                            System.out.println();
                             break;
 
                         default:
@@ -288,7 +328,6 @@ public class Main {
                 case 5: // SALIR
                     System.out.println("Saliendo...");
                     System.out.println();
-
                     break;
 
                 default:
@@ -306,10 +345,6 @@ public class Main {
                 System.out.println(facultad.getColeccionCarreras()[i].getNombre());
             }
         }
-
-        //mostrar coleccion de materias:
-
-
 
         System.out.println();
         System.out.println("Fin del programa");

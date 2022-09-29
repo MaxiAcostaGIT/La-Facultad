@@ -19,13 +19,16 @@ public class C_Materia {
             }
         }
     }
-    public void eliminarEstudiante(C_Estudiante estudiante) {
+    public void eliminarEstudiante(int estudiante) {
+        C_Estudiante[] aux = new C_Estudiante[coleccionEstudiantes.length - 1];
+        int j = 0;
         for (int i = 0; i < coleccionEstudiantes.length; i++) {
-            if (coleccionEstudiantes[i] == estudiante) {
-                coleccionEstudiantes[i] = null;
-                break;
+            if (coleccionEstudiantes[i] != coleccionEstudiantes[estudiante]) {
+                aux[j] = coleccionEstudiantes[i];
+                j++;
             }
         }
+        coleccionEstudiantes = aux;
     }
     public void modificarTitular(C_Profesor CProfesor) {
         this.setTitular(CProfesor);
