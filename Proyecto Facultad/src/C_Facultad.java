@@ -44,7 +44,6 @@ public class C_Facultad implements I_Informacion{
         this.coleccionCarreras = coleccionCarreras;
     }
     public void eliminarEstudiante(C_Estudiante estudiante) {
-        // Eliminar Estudiantes de una facultad implica que se elimine el estudiante de cada una de las materias a las cuales se inscribió:
         for (int i = 0; i < this.getColeccionCarreras().length; i++) {
             if (this.getColeccionCarreras()[i] != null) {
                 for (int j = 0; j < this.getColeccionCarreras()[i].getColeccionMaterias().length; j++) {

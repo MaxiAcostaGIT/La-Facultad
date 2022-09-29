@@ -68,7 +68,6 @@ public class C_Materia implements I_Informacion{
         }
         return cantidad;
     }
-
     @Override
     public String listarContenidos() {
         String contenido = "";

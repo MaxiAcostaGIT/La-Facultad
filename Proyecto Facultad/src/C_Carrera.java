@@ -13,7 +13,6 @@ public class C_Carrera implements I_Informacion{
 
     //METODOS:
     public void agregarMateria(C_Materia materia) {
-        // agergar materia a la coleccion de materias de la carrera en la primera posicion libre:
         for (int i = 0; i < coleccionMaterias.length; i++) {
             if (coleccionMaterias[i] == null) {
                 coleccionMaterias[i] = materia;
@@ -41,7 +40,6 @@ public class C_Carrera implements I_Informacion{
     }
 
     public void eliminarMateriaPorNombre(String nombre) {
-        //Encontrar materias por nombre, si existe, mostrarla y preguntar si desea eliminarla, si retorna null, pasar a la siguiente materia:
         for (int i = 0; i < this.getColeccionMaterias().length; i++) {
             if (this.getColeccionMaterias()[i].getNombre().equals(nombre)) {
                 System.out.println("Materia encontrada: " + this.getColeccionMaterias()[i].getNombre());
@@ -54,7 +52,6 @@ public class C_Carrera implements I_Informacion{
                 }
             }
         }
-
     }
 
     //GETTERS Y SETTERS:
@@ -74,7 +71,6 @@ public class C_Carrera implements I_Informacion{
     // INFORMACION:
     @Override
     public int verCantidad() {
-        // Devuelve la cantidad de materias cargadas en la carrera:
         int cantidad = 0;
         for (int i = 0; i < this.getColeccionMaterias().length; i++) {
             if (this.getColeccionMaterias()[i] != null) {

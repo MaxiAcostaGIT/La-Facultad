@@ -303,7 +303,6 @@ public class Main {
                             System.out.println("Elija una materia:");
                             int numeroMateriaEstudianteEliminar = scanner.nextInt();
                             System.out.println();
-                            // MUESTRO LOS ESTUDIANTES DE LA MATERIA
                             System.out.println("Estudiantes:");
                             for (int i = 0; i < facultad.getColeccionCarreras()[numeroCarreraEstudianteEliminar].getColeccionMaterias()[numeroMateriaEstudianteEliminar].getColeccionEstudiantes().length; i++) {
                                 if (facultad.getColeccionCarreras()[numeroCarreraEstudianteEliminar].getColeccionMaterias()[numeroMateriaEstudianteEliminar].getColeccionEstudiantes()[i] != null) {
@@ -345,3 +344,7 @@ public class Main {
         System.out.println("Fin del programa");
     }
 }
+
+// NOTACIONES:
+// El metodo eliminarEstudiante() esta en la clase C_Materia. No la implementamos en las opciones pero si la creamos.
+// Faltan los Try/Catch, pero no los implementamos porque el codigo es muy largo y no tenemos tiempo.
