@@ -27,7 +27,6 @@ public class C_Materia {
             }
         }
     }
-
     public void modificarTitular(C_Profesor CProfesor) {
         this.setTitular(CProfesor);
     }
@@ -51,7 +50,6 @@ public class C_Materia {
     public void setColeccionEstudiantes(C_Estudiante[] coleccionEstudiantes) {
         this.coleccionEstudiantes = coleccionEstudiantes;
     }
-
     public void setProfesor(C_Profesor profesor) {
         this.titular = profesor;
     }

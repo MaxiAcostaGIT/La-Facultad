@@ -165,7 +165,6 @@ public class Main {
 
                 case 3: // PROFESORES
                     System.out.println("- PROFESORES -");
-                    System.out.println();
                     System.out.println("Elija una opcion:");
                     System.out.println("1. Modificar profesor");
                     System.out.println("2. Volver");
@@ -176,7 +175,6 @@ public class Main {
                         case 1: //MODIFICAR PROFESOR
                             System.out.println("Que carrera desea modificar?");
                             System.out.println();
-                            //MOSTRAMOS LAS CARRERAS:
                             System.out.println("Carreras:");
                             for (int i = 0; i < facultad.getColeccionCarreras().length; i++) {
                                 if (facultad.getColeccionCarreras()[i] != null) {
@@ -189,7 +187,6 @@ public class Main {
                             System.out.println();
                             System.out.println("Que materia desea modificar el profesor?");
                             System.out.println();
-                            //MOSTRAMOS LAS MATERIAS:
                             System.out.println("Materias:");
                             for (int i = 0; i < facultad.getColeccionCarreras()[numeroCarreraProfesor].getColeccionMaterias().length; i++) {
                                 if (facultad.getColeccionCarreras()[numeroCarreraProfesor].getColeccionMaterias()[i] != null) {
@@ -200,7 +197,6 @@ public class Main {
                             System.out.println("Elija una materia:");
                             int numeroMateriaProfesor = scanner.nextInt();
                             System.out.println();
-                            // ASIGNAMOS PROFESOR:
                             System.out.println("Ingrese el nombre del profesor:");
                             String nombreProfesor = scanner.nextLine();
                             nombreProfesor = scanner.nextLine();
@@ -208,7 +204,6 @@ public class Main {
                             String apellidoProfesor = scanner.nextLine();
                             System.out.println("Ingrese numero de legajo del profesor:");
                             int legajoProfesor = scanner.nextInt();
-                            // asignamos profesor:
                             facultad.getColeccionCarreras()[numeroCarreraProfesor].getColeccionMaterias()[numeroMateriaProfesor].setProfesor(new C_Profesor(nombreProfesor, apellidoProfesor, legajoProfesor));
                             System.out.println("Profesor asignado.");
                             System.out.println();
@@ -228,10 +223,71 @@ public class Main {
 
                 case 4: // ESTUDIANTES
                     System.out.println("- ESTUDIANTES -");
+                    System.out.println();
+                    System.out.println("Elija una opcion:");
+                    System.out.println("1. Agregar estudiante a una materia");
+                    System.out.println("2. Eliminar estudiante de una materia");
+                    System.out.println("3. Volver");
+                    System.out.println();
+                    int opcionEstudiantes = scanner.nextInt();
 
+                    switch (opcionEstudiantes) {
+                        case 1: // AGREGAR ESTUDIANTE DE UNA MATERIA
+                            System.out.println();
+                            System.out.println("Carreras:");
+                            for (int i = 0; i < facultad.getColeccionCarreras().length; i++) {
+                                if (facultad.getColeccionCarreras()[i] != null) {
+                                    System.out.println(i + ". " + facultad.getColeccionCarreras()[i].getNombre());
+                                }
+                            }
+                            System.out.println();
+                            System.out.println("Elija una carrera:");
+                            int numeroCarreraEstudiante = scanner.nextInt();
+                            System.out.println();
+                            System.out.println("A que materia desea agregar el estudiante?");
+                            System.out.println();
+                            System.out.println("Materias:");
+                            for (int i = 0; i < facultad.getColeccionCarreras()[numeroCarreraEstudiante].getColeccionMaterias().length; i++) {
+                                if (facultad.getColeccionCarreras()[numeroCarreraEstudiante].getColeccionMaterias()[i] != null) {
+                                    System.out.println(i + ". " + facultad.getColeccionCarreras()[numeroCarreraEstudiante].getColeccionMaterias()[i].getNombre());
+                                }
+                            }
+                            System.out.println();
+                            System.out.println("Elija una materia:");
+                            int numeroMateriaEstudiante = scanner.nextInt();
+                            System.out.println();
+                            System.out.println("Ingrese el nombre del estudiante:");
+                            String nombreEstudiante = scanner.nextLine();
+                            nombreEstudiante = scanner.nextLine();
+                            System.out.println("Ingrese el apellido del estudiante:");
+                            String apellidoEstudiante = scanner.nextLine();
+                            System.out.println("Ingrese numero de legajo del estudiante:");
+                            int legajoEstudiante = scanner.nextInt();
+                            C_Estudiante estudiante = new C_Estudiante(nombreEstudiante, apellidoEstudiante, legajoEstudiante);
+                            facultad.getColeccionCarreras()[numeroCarreraEstudiante].getColeccionMaterias()[numeroMateriaEstudiante].agregarEstudiante(estudiante);
+                            System.out.println("Estudiante agregado.");
+                            System.out.println();
+
+                            break;
+
+                        case 2: // ELIMINAR ESTUDIANTE DE UNA MATERIA
+
+                            break;
+
+                        case 3:
+
+                            break;
+
+                        default:
+                            System.out.println("Opcion incorrecta.");
+                            System.out.println();
+                            break;
+                    }
                     break;
 
                 case 5: // SALIR
+                    System.out.println("Saliendo...");
+                    System.out.println();
 
                     break;
 
@@ -250,6 +306,9 @@ public class Main {
                 System.out.println(facultad.getColeccionCarreras()[i].getNombre());
             }
         }
+
+        //mostrar coleccion de materias:
+
 
 
         System.out.println();
