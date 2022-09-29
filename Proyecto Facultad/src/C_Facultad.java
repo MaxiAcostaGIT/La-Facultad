@@ -1,4 +1,4 @@
-public class C_Facultad {
+public class C_Facultad implements I_Informacion{
     //ATRIBUTOS:
     private String nombre;
     private C_Carrera[] coleccionCarreras = new C_Carrera[0];
@@ -45,5 +45,33 @@ public class C_Facultad {
     }
 
     public void eliminarEstudiante(C_Estudiante estudiante) {
+    } // FALTAN ESTOS METODOS
+
+    // INFORMACION:
+    @Override
+    public int verCantidad() {
+        // Devuelve la cantidad de carreras cargadas en la facultad:
+        int cantidad = 0;
+        for (int i = 0; i < this.getColeccionCarreras().length; i++) {
+            if (this.getColeccionCarreras()[i] != null) {
+                cantidad++;
+            }
+        }
+        return cantidad;
+    }
+
+    @Override
+    public String listarContenidos() {
+        String lista = "";
+        for (int i = 0; i < this.getColeccionCarreras().length; i++) {
+            if (this.getColeccionCarreras()[i] != null) {
+                lista += this.getColeccionCarreras()[i].getNombre() + " ";
+            }
+        }
+        return lista;
+    }
+    @Override
+    public String toString() {
+        return "Facultad: " + this.getNombre() + " - Carreras: " + this.verCantidad() + " - " + this.listarContenidos();
     }
 }

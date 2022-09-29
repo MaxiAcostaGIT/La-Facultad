@@ -22,6 +22,12 @@ public class Main {
         System.out.println("Nombre de la materia: " + facultad.getColeccionCarreras()[0].getColeccionMaterias()[0].getNombre());
         System.out.println("Nombre del estudiante: " + facultad.getColeccionCarreras()[0].getColeccionMaterias()[0].getColeccionEstudiantes()[0].getNombre());
         System.out.println("--------------------");
+        System.out.println("TESTEO toString:");
+        System.out.println(facultad.toString());
+        System.out.println(facultad.getColeccionCarreras()[0].toString());
+        System.out.println(facultad.getColeccionCarreras()[0].getColeccionMaterias()[0].toString());
+
+        System.out.println("--------------------");
         System.out.println();
 
         // PROGRAMA:

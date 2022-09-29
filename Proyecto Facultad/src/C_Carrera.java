@@ -1,4 +1,4 @@
-public class C_Carrera {
+public class C_Carrera implements I_Informacion{
     //ATRIBUTOS:
     private String nombre;
     private C_Materia[] coleccionMaterias;
@@ -50,5 +50,32 @@ public class C_Carrera {
     }
     public void setColeccionMaterias(C_Materia[] coleccionMaterias) {
         this.coleccionMaterias = coleccionMaterias;
+    }
+
+    // INFORMACION:
+    @Override
+    public int verCantidad() {
+        // Devuelve la cantidad de materias cargadas en la carrera:
+        int cantidad = 0;
+        for (int i = 0; i < this.getColeccionMaterias().length; i++) {
+            if (this.getColeccionMaterias()[i] != null) {
+                cantidad++;
+            }
+        }
+        return cantidad;
+    }
+    @Override
+    public String listarContenidos() {
+        String cadena = "";
+        for (int i = 0; i < this.getColeccionMaterias().length; i++) {
+            if (this.getColeccionMaterias()[i] != null) {
+                cadena += this.getColeccionMaterias()[i].getNombre() + " ";
+            }
+        }
+        return cadena;
+    }
+    @Override
+    public String toString() {
+        return "Carrera: " + this.getNombre() + " - Cantidad de materias: " + this.verCantidad() + " - Materias: " + this.listarContenidos();
     }
 }

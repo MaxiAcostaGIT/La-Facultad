@@ -1,4 +1,4 @@
-public class C_Materia {
+public class C_Materia implements I_Informacion{
     //ATRIBUTOS:
     private String nombre;
     private C_Profesor titular;
@@ -55,5 +55,32 @@ public class C_Materia {
     }
     public void setProfesor(C_Profesor profesor) {
         this.titular = profesor;
+    }
+
+    // INFORMACION:
+    @Override
+    public int verCantidad() {
+        int cantidad = 0;
+        for (int i = 0; i < coleccionEstudiantes.length; i++) {
+            if (coleccionEstudiantes[i] != null) {
+                cantidad++;
+            }
+        }
+        return cantidad;
+    }
+
+    @Override
+    public String listarContenidos() {
+        String contenido = "";
+        for (int i = 0; i < coleccionEstudiantes.length; i++) {
+            if (coleccionEstudiantes[i] != null) {
+                contenido += coleccionEstudiantes[i].getNombre() + " " + coleccionEstudiantes[i].getApellido() + " " + coleccionEstudiantes[i].getLegajo() + "";
+            }
+        }
+        return contenido;
+    }
+    @Override
+    public String toString() {
+        return "Materia: " + this.getNombre() + " - Cantidad de estudiantes: " + this.verCantidad() + " - Estudiantes: " + this.listarContenidos();
     }
 }
